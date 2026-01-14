@@ -37,6 +37,7 @@
 \DeclareOption{no-natbib-sort}{\natbibsortfalse}
 \ProcessOptions\relax
 
+
 \ifnatbibsort\RequirePackage[numbers,sort&compress]{natbib}\else\RequirePackage[numbers,compress]{natbib}\fi
 \RequirePackage{color}
 \RequirePackage[colorlinks=true
@@ -118,22 +119,35 @@
 %           User Created Environments 
 % ----------------------------------------------------------------------
 
+% ===============================
+% Core spacing (ORIGINAL)
+% ===============================
 \newlength{\spacelength}
 \settowidth{\spacelength}{\normalfont\ }
+
+% ===============================
+% Base theorem style (ORIGINAL)
+% ===============================
 \declaretheoremstyle[
     headfont={\bfseries\sffamily\footnotesize},
     notefont={\normalfont},
     bodyfont={\normalfont},
-    headpunct={\relax},%\newline,
+    headpunct={\relax},
     headformat={%
-        \makebox[0pt][r]{\NAME\ \NUMBER\hspace{\marginparsep}}\hskip-\spacelength{\normalsize\NOTE}},
+        \makebox[0pt][r]{\NAME\ \NUMBER\hspace{\marginparsep}}
+        \hskip-\spacelength{\normalsize\NOTE}},
 ]{theorem}
+
+% ===============================
+% THEOREM (original NotesTeX)
+% ===============================
+\declaretheorem[style=theorem]{theorem}
 
 \tcolorboxenvironment{theorem}{
   boxrule=0pt,
   boxsep=0pt,
   colback={White!90!Dandelion},
-  enhanced jigsaw, 
+  enhanced jigsaw,
   borderline west={1pt}{0pt}{Dandelion},
   sharp corners,
   before skip=10pt,
@@ -143,8 +157,145 @@
   breakable,
 }
 
-\declaretheorem[style=theorem]{theorem}
+% ===============================
+% DEFINITION (original NotesTeX)
+% ===============================
+\declaretheorem[style=theorem]{definition}
 
+\tcolorboxenvironment{definition}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!Cerulean},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{Cerulean},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% PRINCIPLE (green clone)
+% ===============================
+\declaretheorem[style=theorem]{principle}
+
+\tcolorboxenvironment{principle}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!ForestGreen},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{ForestGreen},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% CLAIM (purple clone)
+% ===============================
+\declaretheorem[style=theorem]{claim}
+
+\tcolorboxenvironment{claim}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!Purple},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{Purple},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% EXERCISE (orange clone)
+% ===============================
+\declaretheorem[style=theorem]{exercise}
+
+\tcolorboxenvironment{exercise}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!Orange},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{Orange},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% LEMMA (original minimal style)
+% ===============================
+\declaretheorem[style=theorem]{lemma}
+
+\tcolorboxenvironment{lemma}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{Red},
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% INTUITION / REMARK / EXAMPLE
+% ===============================
+\declaretheorem[style=theorem]{intuition}
+\declaretheorem[style=theorem]{remark}
+\declaretheorem[style=theorem]{example}
+
+\tcolorboxenvironment{intuition}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{Black},
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+\tcolorboxenvironment{remark}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{Black},
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+\tcolorboxenvironment{example}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{Black},
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+% ===============================
+% PROOF (ORIGINAL NotesTeX)
+% ===============================
 \let\proof\relax
 \let\endproof\relax
 
@@ -154,8 +305,13 @@
     bodyfont={\normalfont},
     headpunct={\relax},
     headformat={%
-        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\NOTE}},
+        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}
+        \hskip-\spacelength{\NOTE}},
 ]{proof}
+
+\declaretheorem[
+    style=proof,
+    qed=\qedsymbol]{proof}
 
 \tcolorboxenvironment{proof}{
   boxrule=0pt,
@@ -169,86 +325,10 @@
   breakable,
 }
 
-\declaretheoremstyle[
-    headfont={\footnotesize\itshape},
-    notefont={\normalfont},
-    bodyfont={\normalfont},
-    headpunct={\relax},
-    headformat={%
-        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\NOTE}},
-]{claim}
-
-\declaretheorem[
-    style=proof,
-    qed=\qedsymbol]{proof}
-
-\declaretheorem[style=claim]{Intuition}
-
-\theoremstyle{theorem}
-\newtheorem{ques}{Question}
-
-\theoremstyle{theorem}
-\newtheorem{definition}{Definition}
-\tcolorboxenvironment{definition}{
-  boxrule=0pt,
-  boxsep=0pt,
-  colback={White!90!Cerulean},
-  enhanced jigsaw, 
-  borderline west={1pt}{0pt}{Cerulean},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
-
-\theoremstyle{theorem}
-\newtheorem{lemma}{Lemma}
-\tcolorboxenvironment{lemma}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{Red},
-  before skip=10pt,
-  after skip=10pt,
-  sharp corners,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
-
-
-\theoremstyle{claim}
-\newtheorem{intu}{Intuition}
-
-\theoremstyle{claim}
-\newtheorem{solu}{Solution}
-
-\theoremstyle{claim}
-\newtheorem{remark}{Remark}
-
-\theoremstyle{claim}
-\newtheorem{example}{Example}
-\tcolorboxenvironment{example}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{Black},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
-
-\renewcommand*{\raggedleftmarginnote}{\noindent}
-\renewcommand*{\raggedrightmarginnote}{\noindent}
-\newcommand{\mn}[1]{\textsuperscript{\thesidenote}{}\marginnote{\textsuperscript{\thesidenote}{}\itshape\footnotesize #1}\refstepcounter{sidenote}}
-\newcommand{\en}[1]{\marginnote{\footnotesize{#1}}}
-\newcommand{\lec}[2]{{\setlength{\marginparwidth}{.07\paperwidth}\reversemarginpar\marginnote{\centering\footnotesize{\textsf{\bfseries #1}}\\#2}}}
-\newcommand{\sn}[1]{\sidenote{\itshape\footnotesize #1}}
+% ===============================
+% QUESTION
+% ===============================
+\declaretheorem[style=theorem]{question}
 
 % ----------------------------------------------------------------------
 %           User Macros: Add Below 

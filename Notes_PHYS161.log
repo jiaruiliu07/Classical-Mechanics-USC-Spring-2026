@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  13 JAN 2026 15:52
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  14 JAN 2026 09:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -831,21 +831,22 @@ Package: physics
 \myoddoffset=\skip83
 \spacelength=\skip84
 \c@theorem=\count359
-\c@proof=\count360
-\c@Intuition=\count361
-\c@ques=\count362
-\c@definition=\count363
+\c@definition=\count360
+\c@principle=\count361
+\c@claim=\count362
+\c@exercise=\count363
 \c@lemma=\count364
-\c@intu=\count365
-\c@solu=\count366
-\c@remark=\count367
-\c@example=\count368
+\c@intuition=\count365
+\c@remark=\count366
+\c@example=\count367
+\c@proof=\count368
+\c@question=\count369
 \auth@toks=\toks55
 \affil@toks=\toks56
 \email@toks=\toks57
-\c@email@counter=\count369
+\c@email@counter=\count370
 \affiliationsSep=\skip85
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 374.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 454.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
@@ -861,24 +862,24 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidthfirst=\dimen329
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count370
-\l__lipsum_a_int=\count371
-\l__lipsum_b_int=\count372
+\g__lipsum_par_int=\count371
+\l__lipsum_a_int=\count372
+\l__lipsum_b_int=\count373
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count373
-\l__fontspec_language_int=\count374
-\l__fontspec_strnum_int=\count375
-\l__fontspec_tmp_int=\count376
-\l__fontspec_tmpa_int=\count377
-\l__fontspec_tmpb_int=\count378
-\l__fontspec_tmpc_int=\count379
-\l__fontspec_em_int=\count380
-\l__fontspec_emdef_int=\count381
-\l__fontspec_strong_int=\count382
-\l__fontspec_strongdef_int=\count383
+\l__fontspec_script_int=\count374
+\l__fontspec_language_int=\count375
+\l__fontspec_strnum_int=\count376
+\l__fontspec_tmp_int=\count377
+\l__fontspec_tmpa_int=\count378
+\l__fontspec_tmpb_int=\count379
+\l__fontspec_tmpc_int=\count380
+\l__fontspec_em_int=\count381
+\l__fontspec_emdef_int=\count382
+\l__fontspec_strong_int=\count383
+\l__fontspec_strongdef_int=\count384
 \l__fontspec_tmpa_dim=\dimen330
 \l__fontspec_tmpb_dim=\dimen331
 \l__fontspec_tmpc_dim=\dimen332
@@ -912,27 +913,27 @@ Package fontspec Info:
  (./Notes_PHYS161.aux)
 \openout1 = `Notes_PHYS161.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-Package hyperref Info: Link coloring ON on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+Package hyperref Info: Link coloring ON on input line 23.
  (./Notes_PHYS161.out) (./Notes_PHYS161.out)
 \@outlinefile=\write4
 \openout4 = `Notes_PHYS161.out'.
@@ -1012,37 +1013,37 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 26.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 33.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 26.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 26.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 26.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 26.
+(Font)              <10> on input line 33.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 26.
+(Font)              <7> on input line 33.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 26.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 26.
+(Font)              <5> on input line 33.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1051,7 +1052,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-Package marginnote Info: Using workaround for absolute page number on input line 26.
+Package marginnote Info: Using workaround for absolute page number on input line 33.
  (./Notes_PHYS161.toc)
 \tf@toc=\write5
 \openout5 = `Notes_PHYS161.toc'.
@@ -1059,23 +1060,23 @@ Package marginnote Info: Using workaround for absolute page number on input line
 
 
 [1]
-Package marginnote Info: Margin note 4.1 is on absolute page 4 on input line 29.
-Package marginnote Info: right page because not two side mode on input line 29.
-Package marginnote Info: xpos seems to be 67.57281pt on input line 29.
+Package marginnote Info: Margin note 4.1 is on absolute page 4 on input line 36.
+Package marginnote Info: right page because not two side mode on input line 36.
+Package marginnote Info: xpos seems to be 67.57281pt on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <24.88> on input line 29.
+(Font)              <24.88> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 29.
+(Font)              <20.74> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 29.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 37.
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 42.
+(Font)              <17.28> on input line 36.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 44.
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 49.
 
 
 [1
 
 ]
-Package marginnote Info: Using workaround for absolute page number on input line 78.
+Package marginnote Info: Using workaround for absolute page number on input line 85.
 
 
 [2] (./Notes_PHYS161.aux)
@@ -1087,10 +1088,10 @@ Package rerunfilecheck Info: File `Notes_PHYS161.out' has not changed.
 (rerunfilecheck)             Checksum: A0DA7A2057AA12F7E7395799480D5274;483.
  ) 
 Here is how much of TeX's memory you used:
- 33242 strings out of 473832
- 700472 string characters out of 5729482
- 1238799 words of memory out of 5000000
- 55699 multiletter control sequences out of 15000+600000
+ 33331 strings out of 473832
+ 703429 string characters out of 5729482
+ 1243222 words of memory out of 5000000
+ 55788 multiletter control sequences out of 15000+600000
  610080 words of font info for 132 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,15n,135p,546b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
