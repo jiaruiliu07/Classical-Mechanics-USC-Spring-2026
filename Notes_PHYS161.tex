@@ -94,7 +94,9 @@
 	  \tau \propto l^{\frac{1}{2}} g^{-\frac{1}{2}} = \sqrt{\frac{l}{g}}
 	\end{equation}
 
-	EXERCISE: Look at the dimensions of $c,\hbar, \,\text\,{and} G$. Create the Planck units- the Planck length, time, and mass, by combining the three constants in a unique way that they create a constant for length, time, and mass.
+	\begin{exercise}
+		Look at the dimensions of $c,\hbar, \,\text{and} \, G$. Create the Planck units- the Planck length, time, and mass, by combining the three constants in a unique way that they create a constant for length, time, and mass.
+	\end{exercise}
 
 	
 	\section{Definitions}
@@ -111,9 +113,178 @@
 	In this frame of reference, we may set up Cartesian coordinates for space $(x,y,z)$ to uniquely specify the position of a particle. The Cartesian coordinate is defined by three everywhere mutually perpendicular axes intersecting at the same point, defined as the origin. 
 	
 	\vspace{\baselineskip}
-	Now it's the problem of incorporating time: the sequence of locations a particle passes can be described as time. It cannot, to our best knowledge be reversed, so it's the monotonically increasing parameter denoting the particle's position. We treat it as another label on the event: write $(t,x,y,z)$. Thus, to locate an event in space, we have four dimensions. 
+	Now it's the problem of incorporating time: the sequence of locations a particle passes can be described as time. It cannot, to our best knowledge be reversed, so it's the monotonically increasing parameter denoting the particle's position. We treat it as another label on the event: write $(ct,x,y,z)$. Thus, to locate an event in space, we have four dimensions.
+	\begin{remark}
+		Notice that the time axis is not $t$ but $ct$, because the dimension of it should be in length.
+	\end{remark}
 
+	% Lecture 2: More on Spacetime and Events; Inertial Frames of reference and Coordinate Systems, Euclidean Metrics, Kinematics: Displacement in a particular Frame. Vectors in a three-dimensional space, in index notation. 
+
+	Thus we have the more formal definition or general statement:
+	\begin{claim}
+		To specify an event in the universe, we provide four labels:
+		\begin{equation}
+		  (ct,x,y,z)
+		\end{equation}
+
+		where $x,y$ and $z$ are for space or location, and $ct$ as time. Here $c$ is introduced as a speed constant (not "light speed" in its literal sense), which we will cover in due course.
+	\end{claim}
+
+	This encourages us to think in the perspective that the "arena" of the universe is a four-dimensional mathematical space that we will call spacetime. A teaser for the mathematical space: "manifolds". This will be covered in higher division courses.
+
+	\vspace{\baselineskip}
+	Now we have the empirical facts about space.
+	\begin{claim}
+		Here are the empirical facts about space:
+		\begin{enumerate}
+			\item {It is in three dimensions, with an extra dimension of time,}
+			\item {It is isotropic, which means it looks the same in every direction,}
+			\item {It is homogenous, as in it is the same at every point.}
+		\end{enumerate}
+	\end{claim}
+
+	In the larger context of general relativity, which includes gravity, there are many space-times. To distinguish ours, the one relevant for special relativity, we will call it Minkowski Spacetime. Thus to summarize, \textit{\textbf{The universe is a four dimensional Minkowski spacetime, with points and events labeled $(ct,x,y,z)$}}.
+
+	\vspace{2\baselineskip}
+	\textbf{Observers and inertial frames.} There is a special class of frames of reference are known as inertial frames. It is the result of Newton's first law, which we will cover later in the course. 
+
+	\vspace{1\baselineskip}
+	Consider a free particle— a particle subject to no influences. (we assume that this is true in the context of classical mechanics). Then, an inertial frame is a frame in which a free particle moves uniformly in a straight line, or not at all. This implies that if one inertial frame exists, by moving the origin or setting another frame of reference that is moving at constant speed relative to our first, or even performing static rotations, these will all define inertial frames equally.
+
+	\vspace{1\baselineskip}
+	A straight line in this sense can be defined as the shortest distance between two points in space— when we talk about geometric spaces, we are talking about the geometry of Euclid. Another remark is that coordinates are entirely artificial, and the choice of coordinates is arbitrary. Thus the laws of physics \textit{cannot} depend on coordinates. This actually has profound consequences: the laws that we write down are not arbitrary and are subject to the principle.
+
+	\vspace{1\baselineskip}
+	Take the vector for example. It is defined as a "quantity with a magnitude and a direction", independent of coordinate systems— that is the motivation for vectors, scalars, tensors... and other ideas in physics. 
+
+	\newpage
+	\section{Coordinate Systems}
+	\textbf{Distance.} To express distances in coordinate systems, we have Pythagorean's Theorem:
+	\begin{theorem}
+		For two points in space, in a Euclidean coordinate system, we have the distance, $\Delta \ell$ is defined as:
+		\begin{equation}
+		  \Delta \ell^{2} = \Delta x^{2} + \Delta y^{2} + \Delta z^{2}.
+		\end{equation}
+
+		If the quantity is infinitesimal:
+		\begin{equation}
+		  \dd \ell^{2} = \dd x^{2} + \dd y^{2} + \dd z^{2}.
+		\end{equation}
+	\end{theorem}
+
+	\begin{remark}
+		Note that using the calculus of variations would reveal the straight line as the shortest distance between two arbitrary points.
+	\end{remark}
+
+	Henceforth— and unless otherwise stated— we will look in inertial frames. The first we will introduce, of course, is the Cartesian coordinates, where we choose three mutually perpendicular axes. The other two coordinate systems, spherical / cylindrical coordinates are defined well enough in Calculus, with the exception of using $(ct,r,\theta,\varphi)$ where $\theta$ is the azimuthal angle and $\varphi$ is the polar coordinate, different from the mathematical definition.
+
+	\vspace{1\baselineskip}
+	Now we introduce the shorthand notation for the axes:
+	\begin{equation}
+	  (ct,x,y,z) \;\Rightarrow\; (x^{0},x^{1},x^{2},x^{3}).
+	\end{equation}
+
+	Or, when in spacetime coordinates we have:
+	\begin{equation}
+	  x^{\mu}, x^{\nu}, x^{\lambda}, x^{\sigma}, \;\mu,\nu,\lambda,\sigma \in [0,3],
+	\end{equation}
+
+	or, when we are in space,
+	\begin{equation}
+	  x^{i}, x^{j}, x^{m}, x^{k}, \; i,j,m,k \in [1,3].
+	\end{equation}
+
+	There will be an abuse of notation that is quite standard:
+	\begin{equation}
+	  x^{\mu} = (x^{0},x^{1},x^{2},x^{3}).
+	\end{equation}
+
+	\vspace{1\baselineskip}
+	\textbf{Defining time.} The natural choice of parameterization is to use coordinate time:
+	\begin{equation}
+	  t \equiv \frac{x^{0}}{c}.
+	\end{equation}
+	
+	Then, we would have
+	\begin{equation}
+	  x^{0} = x^{0}(t) = ct \quad \Rightarrow \quad x^{\mu} = x^{\mu}(t) = (ct, x^{1}(t),x^{2}(t),x^{3}(t)).
+	\end{equation}
+
+	When we use Cartesian coordinates, or $x^{1} = x, x^{2} = y, x^{3} = z$, we would have the positions defined, when we suppress the time factor for simplicity, would be
+	\begin{equation}
+	  (x(t),y(t),z(t)).
+	\end{equation}
+
+	Now we move on to the definition of a "frame", or a "slice" of spacetime, as:
 	\begin{definition}
-		Hi.
+		A frame is a spatial slice of spacetime where every point on the slice is simultaneous with every other.
+	\end{definition}
+
+	We can consider this as a "stack of slices", where the progression sequence is the direction of time. But this is inaccurate: it has the underlying assumption that space and time are independent of observers: what is considered simultaneous in the perspective of one observer is not necessarily simultaneous in another. We will come back to this notion in time dilation.
+
+	\vspace{2\baselineskip}
+	\textbf{Displacement.} As a first attempt at motion, define the displacement $\Delta x^{i}$ as:
+	\begin{equation}
+	  \Delta x^{i} \equiv x^{i}_{\mathrm{f}} - x^{i}_{\mathrm{i}}.
+	\end{equation}
+
+	Where $x^{i}_{\mathrm{f}} = x^{i}(t_{\mathrm{f}})$ and $x^{i}_{\mathrm{i}} = x^{i}(t_{\mathrm{i}})$, where the duration is $\Delta t = t_{\mathrm{f}}-t_{\mathrm{i}}$. We can immediately see that this is a crude definition of motion because it considers only the endpoint and starting point, providing just the "Line of Sight" distance between two points. So, to further clarify, we will define also its magnitude:
+	\begin{equation}
+	  \vqty{\Delta x^{i}} \equiv \sqrt{(\Delta x)^{2} + (\Delta y)^{2} + (\Delta z)^{2}}.
+	\end{equation} 
+
+	We notice that this is an extremely crude way still, because it does not count for any motion of the particle in between the time of motion. However if we take the limit, this becomes extremely useful. Let's first obtain this from the Euclidean metric. 
+	\begin{proof}
+		We first introduce a parameter, $\lambda$, where the line is parameterized by
+		\begin{equation}
+		  x(\lambda) = a \lambda, \; y(\lambda) = b \lambda, \; z(\lambda) = c \lambda.
+		\end{equation}
+
+		With $0 \le \lambda le 1$. Let
+		\begin{equation}
+		  L = \vqty{\Delta x^{i}},
+		\end{equation}
+
+		This, when we start with a line assuming $c=0$, we get $y = \frac{b}{a} x.$ When we take the length differential,
+		\begin{equation}
+		  d \ell = \sqrt{\Delta x^{2} + \Delta y^{2} + \Delta z^{2}},
+		\end{equation}
+
+		the length would be:
+		\begin{equation}
+		  L = \int \dd \ell = \int_{0}^{1} \sqrt{\Delta x^{2} + \Delta y^{2} + \Delta z^{2}} \,\dd \lambda = \sqrt{a^{2}+b^{2}+c^{2}}.
+		\end{equation}
+
+		For this context is is a bit of an overkill, but for spacetime the incorporation of time would lead to more counterintuitive answers.
+	\end{proof}
+
+	\section{Vectors in Three-Dimensional Euclidean Space}
+	From the definition of displacement we notice that it is correlated with direction- it has both a magnitude, and a direction. Thus we introduce the idea of vectors:
+	\begin{definition}
+		A quantity with only magnitude is a scalar. A quantity with magnitude and direction is a vector. A vector can thus be denoted as a directed line segment, i.e. an arrow. Note that vectors are independent of coordinates.
+	\end{definition}
+
+	Now we go on to define the algebra, transformation, and calculus of vectors. We will start with notation. Vectors will be noted as $\overrightarrow{A}$ or $\mathbf{A}$, with its magnitude $\vqty{\overrightarrow{A}}$ or $\mathrm{A}$. For the direction of the vector we wil denote as the unit vector $\mathbf{\hat{A}}$.
+
+	\vspace{1\baselineskip}
+	In Cartesian coordinates this course will prefer $\{\hat{\mathbf{x}}, \hat{\mathbf{y}}, \hat{\mathbf{z}}\}$. But there is a better and more general way to note this:
+	\begin{equation}
+	  \{\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\hat{\mathbf{e}}_3\}.
+	\end{equation}
+
+	This extends to the claim:
+	\begin{claim}
+		Any arbitrary vector $\hat{\mathbf{A}}$can be expressed as a linear combination of the basis vectors $\left\{ \hat{e_{i}} \right\} $.
+	\end{claim}
+
+	\vspace{1\baselineskip}
+	\textbf{Vector addition.} Geometrically we define the diagonal of the parallelogram formed by the two vectors to be added. We also define multiplication by a scalar:
+	\begin{definition}
+	  Let $\alpha \in \mathbb{R}$ and $\hat{\mathbf{e}}_{i}$ as the basis vectors. Define $\alpha \mathbf{e}^{i}$ by:
+	  \begin{equation}
+		\vqty{\alpha \hat{\mathbf{e}}_{i}} = \vqty{\alpha}.
+	  \end{equation}
+
+	  If $\alpha>0$ the result is parallel to the original vector, if $\alpha<0$ is antiparallel to the original vector, if $\alpha=0$ the result is a zero vector.
 	\end{definition}
 \end{document}

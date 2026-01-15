@@ -37,6 +37,8 @@
 \DeclareOption{no-natbib-sort}{\natbibsortfalse}
 \ProcessOptions\relax
 
+\setlength{\parindent}{0pt}
+
 
 \ifnatbibsort\RequirePackage[numbers,sort&compress]{natbib}\else\RequirePackage[numbers,compress]{natbib}\fi
 \RequirePackage{color}
