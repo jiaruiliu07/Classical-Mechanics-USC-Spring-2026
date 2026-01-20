@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  15 JAN 2026 15:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  20 JAN 2026 15:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1093,7 +1093,17 @@ Package hyperref Info: bookmark level for unknown proof defaults to 0 on input l
 
 [5]
 
-[6] (./Notes_PHYS161.aux)
+[6]
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 323.
+
+
+[7]
+
+[8]
+
+[9]
+
+[10] (./Notes_PHYS161.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1102,12 +1112,12 @@ Package rerunfilecheck Info: File `Notes_PHYS161.out' has not changed.
 (rerunfilecheck)             Checksum: 6ECFE615E5AFDA3E0A7C20689B26EE92;906.
  ) 
 Here is how much of TeX's memory you used:
- 33371 strings out of 473832
- 704313 string characters out of 5729482
- 1246675 words of memory out of 5000000
- 55827 multiletter control sequences out of 15000+600000
+ 33399 strings out of 473832
+ 704906 string characters out of 5729482
+ 1248705 words of memory out of 5000000
+ 55855 multiletter control sequences out of 15000+600000
  610088 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,17n,135p,546b,948s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,17n,135p,668b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes_PHYS161.pdf (8 pages).
+Output written on Notes_PHYS161.pdf (12 pages).
