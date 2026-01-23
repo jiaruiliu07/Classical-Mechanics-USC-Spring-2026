@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  20 JAN 2026 15:48
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  22 JAN 2026 15:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1103,21 +1103,32 @@ Package hyperref Info: bookmark level for unknown example defaults to 0 on input
 
 [9]
 
-[10] (./Notes_PHYS161.aux)
+[10]
+
+[11]
+
+[12] (./Notes_PHYS161.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `Notes_PHYS161.out' has not changed.
-(rerunfilecheck)             Checksum: 6ECFE615E5AFDA3E0A7C20689B26EE92;906.
+
+
+Package rerunfilecheck Warning: File `Notes_PHYS161.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Notes_PHYS161.out':
+(rerunfilecheck)             Before: 6ECFE615E5AFDA3E0A7C20689B26EE92;906
+(rerunfilecheck)             After:  C7809B61EFD12F4D403F09845B92F11B;1033.
  ) 
 Here is how much of TeX's memory you used:
- 33399 strings out of 473832
- 704906 string characters out of 5729482
- 1248705 words of memory out of 5000000
- 55855 multiletter control sequences out of 15000+600000
+ 33404 strings out of 473832
+ 704996 string characters out of 5729482
+ 1249850 words of memory out of 5000000
+ 55860 multiletter control sequences out of 15000+600000
  610088 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,668b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes_PHYS161.pdf (12 pages).
+Output written on Notes_PHYS161.pdf (14 pages).

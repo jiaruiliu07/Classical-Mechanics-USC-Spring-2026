@@ -445,7 +445,7 @@
 		  \end{aligned}
 		\end{equation}
 
-		Drop the summation and we get the result.
+		Drop the summation and we get the result. This is why $\delta_{ij}$ is called the Euclidean metric.
 	\end{example}
 
 	An extension of this example is this: Suppose
@@ -454,7 +454,7 @@
 	\end{equation}
 
 	solving for $g$ gives you the function for gravity, which is the definition for "geometry of space". Also when we define
-	\begin{equation}
+	\begin{equation}\label{eq0424}
 	  \dd s^{2} \equiv \left( 1-\frac{2M}{r} \right) c\,\dd t^{2} + \left( 1-\frac{2M}{r} \right)^{-1}\,\dd r^{2} + r^{2}\sin ^{2}\theta \,\dd\Omega^{2},
 	\end{equation}
 
@@ -507,7 +507,7 @@
 	  \begin{aligned}
 	  \mathbf{A} \times \mathbf{B} &= (A^{i}\hat{\mathbf{e}}_{i}) \times (B^{i}\hat{\mathbf{e}}_{j}) \\
 	  =& A^{i}B^{j}(\hat{\mathbf{e}}_{i} \times \hat{\mathbf{e}}_{j}) = A^{i}b^{j}(\epsilon_{ijk}\hat{\mathbf{e}}_{k}) \\
-	  =& \epsilon_{ijk} A^{i}b^{j}\hat{\mathbf{e}}_{k} \\
+	  =& \epsilon_{ijk} A^{i}B^{j}\hat{\mathbf{e}}_{k} \\
 	  =& \epsilon_{123}A^{1}B^{2}\hat{\mathbf{e}}_3 + \epsilon_{132}A^{1}B^{3}e^{2} + \epsilon_{213}A^{2}B^{1}\hat{\mathbf{e}}_3 \\
 	  &+ \epsilon_{231}A^{2}B^{3}\hat{\mathbf{e}}_1 + \epsilon_{312}A^{3}B^{1}\hat{\mathbf{e}}_2 + \epsilon_{321}A^{3}B^{2}\hat{\mathbf{e}}_1 \\
 	  =& (A^{2}B^{3}-A^{3}B^{2})\hat{\mathbf{e}}_1 + (A^{3}B^{1}-A^{1}B^{3})\hat{\mathbf{e}}_2 + (A^{1}b^{2}-A^{2}B^{1})\hat{\mathbf{e}}_3.
@@ -527,6 +527,140 @@
 	Also: Prove the identity 
 	\begin{equation}
 	  \mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = (\mathbf{A} \cdot \mathbf{C})\mathbf{B} - (\mathbf{A} \cdot \mathbf{B})\mathbf{C}.
+	\end{equation}
+
+	\vspace{1\baselineskip}
+	\textbf{Change of basis.} Our basis vectors are coordinate basis vectors, derived from the coordinates we choose. Hence, if we change the coordinate, it implies a change of basis.The components would change after changes of basis, however, the dimensions of the vector itself never changes. We now discuss the change of coordinates through (a) a static rotation, and changing Cartesian to polar coordinates, both in 2D. 
+
+	\vspace{1\baselineskip}
+	We start with rotation. Suppose we have the basic 2D Cartesian coordinates $\mathcal{S}$. Now we rotate it by an angle $\theta$ and get $\bar{\mathcal{S}}$. What we need is to get how are the coordinates $(\bar{x},\bar{y})$ related to $(x,y)$? First, from the figure, we have:
+	\begin{equation}
+	  \begin{aligned}
+	  \bar{x} &= x \cos \theta + y \sin \theta, \\
+	  \bar{y} &= -x \sin \theta + y \cos \theta.
+	  \end{aligned}
+	\end{equation}
+
+	Sidenote: this raises an immediate question: since distance is preserved, what are the coordinate transformations that preserve the Euclidean line element— that is,
+	\begin{equation}
+	  \dd \bar{l}\,^{2} = \dd l^{2}\,?
+	\end{equation}
+
+	Clearly, any $(\bar{x},\bar{y})=(x+a,y+b)$ where $a$ and $b$ are constants preserves $\dd l^{2}$. This restricts us to linear transformations:
+	\begin{equation}
+	  \begin{aligned}
+	  \bar{x} &= Ax + By, \\
+	  \bar{y} &= Cx + Dy.
+	  \end{aligned}
+	\end{equation}
+
+	To prove the uniformity of $\dd \bar{l}\, ^{2}$:
+	\begin{equation}
+	  \begin{aligned}
+	  \dd \bar{l} \,^{2} &= \dd \bar{x}\,^{2} + \dd \bar{y}\,^{2} \\
+	  &= (A^{2}+C^{2})\dd x^{2} + (B^{2}+D^{2})\dd y^{2} + 2(AB+CD)\dd x \dd y \\
+	  &= \dd x^{2} + \dd y^{2}.
+	  \end{aligned}
+	\end{equation}
+
+	This gives us:
+	\begin{equation}
+	  \begin{aligned}
+	  A^{2} + C^{2} &= 1, \\
+	  B^{2} + D^{2} &= 1, \\
+	  AB + CD &= 0.
+	  \end{aligned}
+	\end{equation}
+
+	Solve the equation and we can get the matrix in the equation below (\ref{eq0440}): 
+	\begin{equation}\label{eq0440}
+	  \begin{pmatrix} 
+		  \bar{x} \\ \bar{y} 
+	  \end{pmatrix} = x \cdot \begin{pmatrix} 
+		  \cos \theta \\ - \sin \theta 
+	  \end{pmatrix} + y \cdot  \begin{pmatrix} 
+		  \sin \theta \\ \cos \theta 
+	  \end{pmatrix} = \begin{pmatrix} 
+		  x \\ y 
+	  \end{pmatrix} \cdot \begin{pmatrix} 
+		  \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta 
+	  \end{pmatrix}.
+	\end{equation}
+
+	The basis vectors will change as any vector in the coordinate. Thus we can write a shorthand of:
+	\begin{equation}
+	  \hat{\mathbf{e}}_{\bar{i}} = \hat{\mathbf{e}}_{j} R_{j\bar{i}}.
+	\end{equation}
+
+	For any vector $\mathbf{A}$, we must have $\bar{\mathbf{A}} = \mathbf{A}$. Hence, we would need:
+	\begin{equation}
+	  \bar{\mathbf{A}} = \mathbf{A}^{\bar{i}} \hat{\mathbf{e}}_{\bar{i}} = \mathbf{A}^{\bar{i}}(\hat{\mathbf{e}}_{j}R_{j \bar{i}})\hat{\mathbf{e}}_{j} \equiv \mathbf{A}^{j}\hat{\mathbf{e}}_{j} = \mathbf{A}.
+	\end{equation}
+
+	This implies that:
+	\begin{equation}
+	  \mathbf{A}^{\bar{i}} R_{j \bar{i}} = \mathbf{A}^{j}.
+	\end{equation}
+
+	If we would like to get $\mathbf{A}^{\bar{i}}$ from $\mathbf{A}^{j}$ we would like an inverse that has the property
+	\begin{equation}
+	  R_{\bar{k}j}R_{j \bar{i}} = \delta_{\bar{k}\bar{l}}.
+	\end{equation}
+
+	This would imply that
+	\begin{equation}
+	  \mathbf{A}^{\bar{i}} R_{\bar{k}j} R_{j \hat{i}} = \mathbf{A}^{\bar{i}}\delta_{\bar{k}\bar{i}} = \mathbf{A}^{\bar{k}} = R_{\bar{k}j}\mathbf{A}^{j}.
+	\end{equation}
+
+	This introduces the rotation matrix, $\mathcal{R}$, where
+	\begin{equation}
+	  \begin{aligned}
+	  &(\mathcal{R})_{kj} = R_{\bar{k}j} = \begin{pmatrix} 
+		  \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta 
+	  \end{pmatrix}, \\
+	  &(\mathcal{R}^{-1})_{kj} = R_{\bar{jk}} = \begin{pmatrix} 
+		  \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta 
+	  \end{pmatrix}.
+	  \end{aligned}
+	\end{equation}
+
+	Note that $\mathcal{R}^{-1} = \mathcal{R}^{T}$ and thus $\mathcal{R}^{-1}\mathcal{R} = \mathcal{R}^{T}\mathcal{R} = \mathbb{I}$ , and that $\det(\mathcal{R})=1$. The set of $2\times 2$ matrices for which $\mathcal{R}^{-1}=\mathcal{R}^{T}$ and $\det(\mathcal{R})=1$ is known as the Special Orthogonal Group, $SO(2)$. An element of the set is called a rotation matrix because its operation on vectors is to rotate them through a fixed angle $\theta$. Now an example:
+	\begin{exercise}
+		Consider $\dd x^{i}$ as the components of a vector $\dd \mathbf{x}$. Show, using rotational matrices $(\mathcal{R}_{j \bar{i}})$, that $\dd \bar{\ell}\,^{2} = \dd \ell^{2}$.
+
+		\vspace{1\baselineskip}
+		\textbf{Solution.} We expand $\dd \bar{\ell}\, ^{2}$:
+		\begin{equation}
+		  \begin{aligned}
+		  \dd \bar{\ell}\,^{2} &= \delta_{\bar{i}\bar{j}} \dd x^{\bar{i}} \dd x^{\bar{j}} \\
+		  &= \delta_{\bar{i}\bar{j}} \left( \mathcal{R}_{\bar{i}m}\dd x^{m} \right)\left( \mathcal{R}_{\bar{j}n}\dd x^{n} \right) \\
+		  &= \delta_{\bar{i} \bar{j}} \mathcal{R}_{\bar{i}m}\mathcal{R}_{\bar{j}n}\dd x^{m} \dd x^{n} \\
+		  &= \mathcal{R}_{\bar{i}m} \delta_{\bar{i}\bar{j}} \mathcal{R}_{\bar{j}n} \dd x^{m} \dd x^{n} \\
+		  &= \mathcal{R}_{\bar{i}m}\mathcal{R}_{\hat{i}n} \dd x^{m} \dd x^{n} \\
+		  &= \left( \mathcal{R}^{T} \right)_{m \bar{i}}\left( \mathcal{R} \right)_{\bar{i}n} \dd x^{m} \dd x^{n} \\
+		  &= \delta_{mn} \dd x^{m} \dd x^{n} = \dd \ell^{2}.  
+		  \end{aligned}
+		\end{equation}
+	\end{exercise}
+
+	\vspace{1\baselineskip}
+	\textbf{Polar coordinates.} We express polar coordinates with $(r,\theta)$. The definitions are well-known, but note that there is a \textit{coordinate singularity} at the origin: when $r=0$, $\theta$ can be any value. This, when we change back to Cartesian coordinates, will disappear, and we know that this is not a physical singularity. This will be studied more in general relativity (\ref{eq0424}). 
+
+	\vspace{1\baselineskip}
+	The polar coordinates are effectively rotating $\theta$ throughout $\theta \in [0,2\pi]$. This results in the definitions of the basis vectors to be related to the value of $\theta$:
+	\begin{equation}
+	  \begin{aligned}
+	  \hat{\mathbf{e}}_{r}(\theta) &= \hat{\mathbf{e}}_{x} \cos \theta + \hat{\mathbf{e}}_y \sin \theta,\\
+	  \hat{\mathbf{e}}_{\theta} (\theta) &= -\hat{\mathbf{e}}_x \sin \theta + \hat{\mathbf{e}}_y \cos \theta.
+	  \end{aligned}
+	\end{equation}
+
+	While calculating the derivatives- we need to keep in mind when we take derivatives.
+
+	\section{Vector Calculus}
+	We define a time dependent vector,$\mathbf{A} = \mathbf{A}(t)$. Now we derive its derivative with respect to time. We claim that:
+	\begin{equation}
+	  \dv{\mathbf{A}}{t} = \lim_{\Delta t \to 0} \frac{\mathbf{A}(t + \Delta t) - \mathbf{A}(t)}{\Delta t}.
 	\end{equation}
 
 \end{document}

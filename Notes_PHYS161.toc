@@ -3,3 +3,4 @@
 \contentsline {section}{\numberline {2}Definitions}{2}{section.2}%
 \contentsline {section}{\numberline {3}Coordinate Systems}{4}{section.3}%
 \contentsline {section}{\numberline {4}Vectors in Three-Dimensional Euclidean Space}{5}{section.4}%
+\contentsline {section}{\numberline {5}Vector Calculus}{12}{section.5}%
