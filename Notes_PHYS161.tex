@@ -1,15 +1,12 @@
 \documentclass[10pt]{article}
-\usepackage{NotesTeXV3,lipsum}
+\usepackage{NotesTeXV3}
+\usepackage{lipsum}
 \usepackage{lmodern}
 \usepackage{fontspec}
 \usepackage{physics}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
 
-% Physics note color palette
-\definecolor{physgreen}{RGB}{34,139,34}
-\definecolor{physpurple}{RGB}{128,0,128}
-\definecolor{physblue}{RGB}{30,144,255}
-\definecolor{physorange}{RGB}{255,140,0}
-\definecolor{physgray}{RGB}{80,80,80}
 
 \setmainfont{Source Serif Pro}
 
@@ -21,10 +18,18 @@
 
 
 \begin{document}
+
+	% Physics note color palette
+	\definecolor{physgreen}{RGB}{34,139,34}
+	\definecolor{physpurple}{RGB}{128,0,128}
+	\definecolor{physblue}{RGB}{30,144,255}
+	\definecolor{physorange}{RGB}{255,140,0}
+	\definecolor{physgray}{RGB}{80,80,80}
+
 	\title{{Advanced Principles of Mechanics I}\\{\normalsize{Notes on USC Spring 2026 Course PHYS-161}}}
 	\author{Jiarui Liu}
 	\affiliation{
-	High School Student at Nanjing Foreign Language School\\
+	Student at the University of Southern California\\
 	\href{https://conversionindex.org}{Website}\\
 	\href{https://www.linkedin.com/in/jiarui-liu-994007294/}{LinkedIn}\\
 	\href{https://github.com/jiaruiliu07}{GitHub}\\
@@ -660,7 +665,341 @@
 	\section{Vector Calculus}
 	We define a time dependent vector,$\mathbf{A} = \mathbf{A}(t)$. Now we derive its derivative with respect to time. We claim that:
 	\begin{equation}
-	  \dv{\mathbf{A}}{t} = \lim_{\Delta t \to 0} \frac{\mathbf{A}(t + \Delta t) - \mathbf{A}(t)}{\Delta t}.
+	  \dv{\mathbf{A}}{t} \equiv \lim_{\Delta t \to 0} \frac{\mathbf{A}(t + \Delta t) - \mathbf{A}(t)}{\Delta t}.
+	\end{equation}
+	
+	When we talk about "calculus with vectors", the important distinction is the calculus of time dependent vs position dependent ones ($\mathbf{A}(t)$ vs $\mathbf{A}(x,y,z)$). We will shift to position dependent ones later on. We go back to the proof- geometrically the vectors would be simple.
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}[scale=1.0,>=Latex]
+			% colors match the palette defined above
+			\coordinate (O) at (0,0);
+			\coordinate (A0) at (2.6,0.9);
+			\coordinate (A1) at (3.4,1.8);
+
+			% vectors A(t) and A(t+\Delta t)
+			\draw[->, line width=1.2pt, physblue] (O) -- (A0) node[midway, below=2pt] {$\mathbf{A}(t)$};
+			\draw[->, line width=1.2pt, physpurple] (O) -- (A1) node[midway, above left=2pt] {$\mathbf{A}(t+\Delta t)$};
+
+			% increment \Delta A
+			\draw[->, line width=1.2pt, physorange] (A0) -- (A1) node[midway, right=2pt] {$\Delta \mathbf{A}$};
+
+			% tips
+			\fill[physblue] (A0) circle (1.6pt) node[below right=2pt, text=physblue] {$P$};
+			\fill[physpurple] (A1) circle (1.6pt) node[above right=2pt, text=physpurple] {$P'$};
+			\fill[physgray] (O) circle (1.6pt) node[below left=2pt] {$O$};
+		\end{tikzpicture}
+		\caption{Geometric interpretation of vector derivatives.}
+	\end{figure}
+
+	We can picture the change as two parts: the parallel part that tracks the change in the magnitude of $\mathbf{A}$, and the perpendicular part that tracks the change in direction of the unit vector $\hat{\mathbf{A}}$. Thus, we would have different cases:
+	\begin{equation}
+	  \left( \dv{\mathbf{A}}{t} \right)_{\perp} = 0 \quad \Rightarrow \quad \dv{\mathbf{A}}{t} = \left( \dv{\mathbf{A}}{t} \right)_{\parallel}.
 	\end{equation}
 
+	If we have $\mathbf{A}(t) = A(t)\hat{\mathbf{A}}$, then:
+	\begin{equation}
+	  \dv{\mathbf{A}}{t} = \dv{\mathbf{A}}{t}\hat{\mathbf{A}} = \left( \dv{\mathbf{A}}{t} \right)_{\parallel}. 
+	\end{equation}
+
+	Another condition is when the parallel component is zero. We have:
+	\begin{equation}
+	  \dv{\mathbf{A}}{t} = \left( \dv{\mathbf{A}}{t} \right)_{\perp}. 
+	\end{equation}
+
+	From the Leibniz Rule, we have:
+	\begin{equation}
+	  \dv{t} \left( \overrightarrow{\mathbf{A}} \cdot \hat{\mathbf{A}} \right) = \dv{t}   \left( \mathbf{A} \right) = 0.  
+	\end{equation}
+
+	Thus,
+	\begin{equation}
+	  \dv{\mathbf{A}}{t} = \dv{A}{t}\hat{\mathbf{A}} + A \dv{\hat{\mathbf{A}}}{t} = \left( \dv{\mathbf{A}}{t} \right)_{\parallel} + \left( \dv{\mathbf{A}}{t} \right)_{\perp}.  
+	\end{equation}
+	
+	This would lead to two components of $\dv*{\mathbf{A}}{t}$, and the result would be that differentiating a vector is differentiating each of its components. That is,
+	\begin{definition}
+		The derivative of a vector in $\mathbb{E}^{3}$, with the limit definition, is:
+		\begin{equation}
+		  \dv{\mathbf{A}}{t} = \dv{A^{x}}{t}\hat{\mathbf{e}}_x + \dv{A^{y}}{t}\hat{\mathbf{e}}_y + \dv{A^{z}}{t}\hat{\mathbf{e}}_z.
+		\end{equation}
+	\end{definition}
+
+	Integration is equally straightforward:
+	\begin{equation}
+	  \int \mathbf{A}(t)\dd t = \hat{\mathbf{e}}_x \int A^{x}(t)\dd t + \hat{\mathbf{e}}_y \int A^{y}(t) \dd t + \hat{\mathbf{e}}_z \int A^{z}(t)\dd t.
+	\end{equation}
+
+	But what if we are calculating in polar basis? We have:
+	\begin{equation}
+	  \mathbf{A}(t) = A^{r} \hat{\mathbf{e}}_r + A^{\theta} \hat{\mathbf{e}}_\theta.
+	\end{equation}
+
+	Recall that the basis vectors are also rotating.
+	\begin{equation}
+	  \begin{aligned}
+	  \dv{\hat{\mathbf{e}}_r}{t} &= \dot{\theta}\hat{\mathbf{e}}_\theta, \\
+	  \dv{\hat{\mathbf{e}}_\theta}{t} &= -\dot{\theta}\hat{\mathbf{e}}_r.
+	  \end{aligned}
+	\end{equation}
+
+	This can be translated into uniform circular motion:
+	\begin{equation}
+	  \begin{aligned}
+	  \mathbf{v} &= v \hat{\mathbf{e}}_\theta, \\
+	  \mathbf{v}' &= \mathbf{a} = v\dv{\hat{\mathbf{e}}_\theta}{t} = -v\dot{\theta} \hat{\mathbf{e}}_\theta = -v \omega \hat{\mathbf{e}}_\theta.
+	  \end{aligned}
+	\end{equation}
+
+	The velocity in polar coordinates is:
+	\begin{equation}
+	  \begin{aligned}
+		\mathbf{v}(t) = \dv{\mathbf{r}(t)}{t} &= \dv{r}{t}\hat{\mathbf{e}}_r + r(t)\dv{\hat{\mathbf{e}}_r}{t} \\
+		&= \dot{r}\hat{\mathbf{e}}_r + r\dot{\theta}\hat{\mathbf{e}}_\theta.
+	  \end{aligned}
+	\end{equation}
+
+	Acceleration is thus:
+	\begin{equation}
+	  \begin{aligned}
+		\mathbf{a}(t) = \dv{\mathbf{v}(t)}{t} &= \ddot{r}\hat{\mathbf{e}}_r + \dot{r}\dv{\hat{\mathbf{e}}_r}{t} + (r\ddot{\theta}+\dot{r}\dot{\theta})\hat{\mathbf{e}}_\theta + r\dot{\theta}\dv{\hat{\mathbf{e}}_\theta}{t}\\
+		&= \ddot{r}\hat{\mathbf{e}}_r + \dot{r}\dot{\theta}\hat{\mathbf{e}}_\theta + {r}\ddot{\theta} \hat{\mathbf{e}}_\theta + \dot{r}\dot{\theta}\hat{\mathbf{e}}_\theta- r\dot{\theta}^{2}\hat{\mathbf{e}}_r \\
+		&= \left( \ddot{r} - r\dot{\theta}^{2} \right)\hat{\mathbf{e}}_r + (2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{\mathbf{e}}_\theta. 
+	  \end{aligned}
+	\end{equation}
+
+	Note that we are using both Newtonian and Leibniz notation for clarity, stacking hats and dots are not optimal. For integration it is best practice to convert to Cartesian coordinates and integrate.
+
+	\section{Kinematics in Euclidean Space}
+	We now discuss simple kinematics in $\mathbb{E}^{3}$ in index notation. A particle position is defined as:
+	\begin{definition}
+		A particle's position is given, at coordinate time $t$, in a particular inertial frame $\left( (ct,x,y,z) = (x^{0},x^{1},x^{2},x^{3}) \right) $ by
+		\begin{equation}
+		  \left(x^{1}(t),x^{2}(t),x^{3}(t)\right).
+		\end{equation}
+
+		Here, an observer has used their coordinate time as a parameter to track the particle's changing position.
+	\end{definition}
+
+	We define the displacement, $\Delta x^{i}$, over the duration $\Delta t$ by:
+	\begin{definition}
+		The displacement is defined as:
+		\begin{equation}
+		  \Delta x ^{i} = x_{f}^{i} - x_{0}^{i},
+		\end{equation}
+
+		Where
+		\begin{equation}
+		  x_{f}^{i} = x^{i}(t_{f}), \quad x_{0}^{i} = x^{i}(t_{0}).
+		\end{equation}
+	\end{definition}
+
+	This will involve the definition of the position "vector" (which is not a mathematical vector because it changes if the coordinate system changes e.g. displacement of the origin):
+	\begin{equation}
+	  \mathbf{x} = x^{i}\hat{\mathbf{e}}_i.
+	\end{equation}
+
+	The Cartesian vector is just substituting $x,y,z$ for $i$. Now we define the displacement vector for Cartesian coordinates:
+	\begin{equation}
+	  \Delta \mathbf{x} = \mathbf{x}_{f} - \mathbf{x}_{0} = \Delta x \hat{\mathbf{e}}_x + \Delta y \hat{\mathbf{e}}_y + \Delta z \hat{\mathbf{e}}_z = \Delta x^{i}\hat{\mathbf{e}}_i. 
+	\end{equation}
+
+	The physical path of curve in space the particle moves along is called a particle's trajectory. This is NOT $x$ vs $t$. Over a finite duration $\Delta t_{1}$, the displacement vector in general does not accurately describe the motion of the particle. We can do better by using displacements over shorter time intervals. In fact, if we take the limit of $\Delta t \to 0 \equiv \dd t$, then $\Delta \mathbf{x}$ approaches the accurate path the particle took. We have:
+	\begin{equation}
+	  \mathbf{x}(t+\dd t) = \mathbf{x}(t) + \dd \mathbf{x}(t).
+	\end{equation}
+
+	Moreover, $\vqty{\dd \mathbf{x}} = \dd \ell$ the length of the particle's trajectory. We expect $\dd \mathbf{x} \propto \dd t$ because we expect the particle's trajectory in the interval to approach a straight line. We need a vector here:
+	\begin{equation}
+	  \dd \mathbf{x} = \mathbf{v} \dd t.
+	\end{equation}
+
+	Thus we introduce the rigor of calculus to write:
+	\begin{claim}
+		The velocity of a particle is defined as:
+		\begin{equation}
+		  \vqty{\mathbf{v}} = \lim_{\Delta t \to 0} \frac{\Delta \ell}{\Delta t} = \dv{\ell}{t},
+		\end{equation}
+
+		And:
+		\begin{equation}
+		  \mathbf{v} = \lim_{\Delta t \to 0} \frac{\Delta \mathbf{x}}{\Delta t} = \dv{\mathbf{x}}{t} = \dot{\mathbf{x}}.
+		\end{equation}
+	\end{claim}
+
+	Here, $\mathbf{v}$ is called the velocity vector of the particle. Its direction is the instantaneous direction of the particle's motion; it is always tangent to the particle's trajectory. The magnitude of $\mathbf{v}$ is called the speed of the particle along its motion, where speed is our quantitative measure of the quickness of motion.
+
+	Thus we have the equation for the conversion from velocity to position. Suppose $\mathbf{v}(t) = \boldsymbol{v}_{0}$ as a constant vector:
+	\begin{equation}
+	  \int_{0}^{t} \dv{\mathbf{x}}{t'} \dd t' = \int_{0}^{t}\mathbf{v}_{0}\dd t' \quad \Rightarrow \quad \mathbf{x}(t) = \mathbf{x}_{0}+\mathbf{v}_{0}t.
+	\end{equation}
+
+	The same logic is applied to acceleration:
+	\begin{equation}
+	  \mathbf{a}(t) = \dv{\mathbf{v}}{t} = \dot{\mathbf{v}}(t) = \ddot{\mathbf{x}}(t).
+	\end{equation}
+
+	Now we do an example. 
+	\begin{exercise}
+		A particle's trajectory is a circle of radius $R$ in the $xy$ plane, centered at the origin. It revolves around the circle at a uniform rate, that is, the angular speed $\omega = \dot{\theta}$ is constant, where $\theta$ is the angle the particle's position vector makes with the positive $x$-axis. Find $\mathbf{x}(t,\,\mathbf{v}(t),\,\mathbf{a}(t))$.
+
+		\vspace{1\baselineskip}
+		\textbf{Solution.} 
+	\end{exercise}
+
+	The central problem of classical mechanics is: given an acceleration vector $\mathbf{a}(t)$, we need to find its position. The formal solution is also simple: Given $\mathbf{a}(t), \mathbf{v}_{0}$, and $\mathbf{x}_{0}$:
+	\begin{equation}
+	  \begin{aligned}
+	  \mathbf{a} &= \dv{\mathbf{v}}{t} \quad \Rightarrow \quad \int_{0}^{t} \mathbf{a}(t')\dd t' = \mathbf{v}(t) - \mathbf{v}_{0} \quad \Rightarrow \quad \mathbf{v}(t) = \mathbf{v}_{0} + \int_{0}^{t} \mathbf{a}(t')\dd t',\\
+	  \mathbf{v} &= \dv{\mathbf{x}}{t} \quad \Rightarrow \quad \int_{0}^{t} \mathbf{v}(t')\dd t' = \mathbf{x}(t) - \mathbf{x}_{0} \quad \Rightarrow \quad \mathbf{x}(t) = \mathbf{x}_{0} + \mathbf{v}_{0}t + \int_{0}^{t}\int_{0}^{t'}\mathbf{a}(t'')\dd t''.
+	  \end{aligned}
+	\end{equation}
+
+	We now do an example. 
+	\begin{exercise}
+		A particle's acceleration is given by the equation $\mathbf{a}(t) = a_0 e^{-\alpha t} \hat{\mathbf{e}}_z$, where $a_0$ and $\alpha$ are positive constants. Find $\mathbf{v}(t)$ and $\mathbf{x}(t)$ assuming $\mathbf{v}_{0} = 0$ and $\mathbf{x}_{0} = h \hat{\mathbf{e}}_z$ $(h>0)$. 
+
+		\vspace{1\baselineskip}
+		\textbf{Solution.} the motion is one-dimensional. Since $a^{x} = a^{y} = 0$ and $v_0^{x} = v_0^{y} = 0$, we have: $v^{x}(t) = v^{y}(t) = 0$ and hence (since $x_0 = y_0 = 0$), $x(t) = y(t) = 0$. Thus we need only $v^{z}(t)$ and $z(t)$. 
+		\begin{equation}
+		  v^{z}(t) = v_0^{z} + \int_{0}^{t}a^{z}(t')\dd t' = \int_{0}^{t} a_0e^{-\alpha t'} \dd t' = -\frac{a_0}{\alpha} \left[ e^{-\alpha t} - 1 \right].
+		\end{equation}
+
+		Or,
+		\begin{equation}
+		  v^{z}(t) = \frac{a_0}{\alpha} \left( 1-e^{-\alpha t} \right). 
+		\end{equation}
+
+		For velocity, we have:
+		\begin{equation}
+		  z(t) = z_0 + \int_{0}^{t} v^{z}(t')\dd t' = h + \frac{a_0}{\alpha} \int_{0}^{t} \left( 1-e^{-\alpha t'} \right) \,\dd t' = h + \frac{a_0}{\alpha} \left[ t + \frac{1}{\alpha} \left( e^{-\alpha t}-1 \right)  \right].
+		\end{equation}
+
+		Or,
+		\begin{equation}
+		  z(t) = h + \frac{a_0}{\alpha}t - \frac{a_0}{\alpha ^{2}} \left( 1-e^{-\alpha t} \right).
+		\end{equation}
+	\end{exercise}
+
+	Here we introduce constant acceleration motion. We now demonstrate it how to eliminate $t$ to obtain an expression involving $\mathbf{v}$, $\mathbf{x}$, and $\mathbf{a}$ only.
+	\begin{definition}
+		The time independent expressions for $\mathbf{x}$, $\mathbf{v}$, and $\mathbf{a}$
+
+		\vspace{2\baselineskip}
+		We have the equations:
+		\begin{equation}
+		  \begin{aligned}
+		  \mathbf{x}(t) &= \mathbf{x}_{0} + \mathbf{v}_{0}t + \frac{1}{2} \mathbf{a}_{0}t^{2}, \\
+		  \mathbf{v}(t) &= \mathbf{v}_{0} + \mathbf{a}_{0} t, \\
+		  \mathbf{a}(t) &= \mathbf{a}_{0}.
+		  \end{aligned}
+		\end{equation}
+
+		\vspace{1\baselineskip}
+		\textbf{Solution.} We have:
+		\begin{equation}
+		\mathbf{v} - \mathbf{v}_{0} = \mathbf{a}_{0} t \quad \Rightarrow \quad \left( \mathbf{v} - \mathbf{v}_{0} \right) \cdot \left( \mathbf{v} - \mathbf{v}_{0} \right) = a_0^{2} t ^{2}. 
+		\end{equation}
+
+		Also,
+		\begin{equation}
+		  \mathbf{x} - \mathbf{x}_{0} - \mathbf{v}_{0} t = \frac{1}{2} \mathbf{a}_{0}t ^{2} \quad \Rightarrow \quad 2 \mathbf{a}_{0} \cdot \Delta \mathbf{x} - 2 \mathbf{v}_{0} \cdot \mathbf{a}_{0} t = a_0^{2}t ^{2}
+		\end{equation}
+
+		Because we have
+		\begin{equation}
+		  v^{2} = v_{0}^{2} + 2\mathbf{a}_{0} \cdot \Delta \mathbf{x},
+		\end{equation}
+	
+		the two equations here will become:
+		\begin{equation}
+		\left( \mathbf{v} - \mathbf{v}_{0} \right) \cdot \left( \mathbf{v} - \mathbf{v}_{0} \right) = 2\mathbf{a}_{0} \cdot \Delta \mathbf{x} - 2\mathbf{v}_{0} \cdot \left( \mathbf{v} - \mathbf{v}_{0} \right), 
+		\end{equation}
+		\begin{equation}
+		v^{2} + v_0^{2} - 2 \mathbf{v}\cdot \mathbf{v}_{0} = 2\mathbf{a}_{0} \cdot \Delta \mathbf{x} - 2 \mathbf{v} \cdot \mathbf{v}_{0} + 2v_0^{2}.
+		\end{equation}
+
+		Hence,
+		\begin{equation}
+		  v^{2} = v_0^{2} + 2\mathbf{a}_{0} \cdot \Delta \mathbf{x}.
+		\end{equation}
+	\end{definition}
+
+	\vspace{2\baselineskip}
+	\textbf{Free fall and projectile motion}
+	\begin{claim}
+		All objects, regardless of shape, size, composition, etc., have the same free-fall motion: constant acceleration downward. Here, free fall motion is the movement resulting from the sole influence of Earth's gravity. We denote this acceleration as $g = 9.8$m/s$^{2}$. Looking ahead we can call $g$ the gravitational field, denoted by $\mathbf{g}$ where $\mathbf{g} = -g\hat{\mathbf{e}}_z$, so that $\mathbf{a} = \mathbf{g}$.
+	\end{claim}
+
+	\section{Relativity}
+	\textbf{Galilean Relativity.} We have now understood how to communicate and translate between different frames of reference. The perspective so far is to take a single observer, when they choose a different coordinate. There is an alternative but equivalent way: consider two observers, and the coordinate transformations allowed between $S$ and $\bar{S}$ would be:
+	\begin{equation}
+	  x^{\bar{i}} = R^{\bar{i}}_{\bar{j}}x^{\bar{j}}.
+	\end{equation}
+
+	\textbf{Special Relativity.} We begin with a claim:
+	\begin{claim}
+		The principle of relativity: the laws of physics are the same in all inertial frames of reference.
+
+		\vspace{2\baselineskip}
+		\textbf{The principle of covariance.} The laws of physics mus be expressed in terms of quantities that are independent of coordinates, that is, can be unambiguously coordinated or transferred between different frames. 
+	\end{claim}
+
+	\textbf{Lorentz Transformations.} Two inertial frames, $S$ and $\bar{S}$, with coordinates $x^{i}$ and $x^{\bar{i}}$. Assert that:
+	\begin{equation}
+	  \dd s^{2} \equiv -c^{2} \dd t^{2} + \dd x^{2} = \dd \bar{s}\,^{2}.
+	\end{equation}
+
+	Now we have the lorentz boosts in the $x^{0}-x^{1}$ plane:
+	\begin{equation}
+	  \begin{aligned}
+	  x^{\bar{0}} &= \gamma \left( x^{0} - \beta x^{1} \right) \quad \Rightarrow \quad \bar{t} = \gamma \left( t - \frac{V}{c^{2}} x \right),  \\
+	  x^{\bar{1}} &= \gamma \left( x^{1} - \beta x^{0} \right) \quad \Rightarrow \quad \bar{x} = \gamma \left( x - Vt \right),
+	  \end{aligned}
+	\end{equation}
+
+	where $\gamma \equiv \left( 1-\beta^{2} \right) ^{-1 / 2}$, and $\beta \equiv v / c$. 
+
+	Write these as:
+	\begin{equation}
+	  x^{\bar{\mu}} = \Lambda^{\bar{\mu}}_{\nu} x^{\nu},
+	\end{equation}
+
+	where $\Lambda^{\bar{\mu}}_{\nu}$ are the elements of the matrix $\Lambda$:
+	\begin{equation}
+	  \Lambda ^{\bar{\mu}}_{\nu} = \begin{pmatrix} 
+		  \gamma & -\beta \gamma & 0 & 0 \\
+		  -\beta \gamma & \gamma & 0 & 0 \\
+		  0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 
+	  \end{pmatrix}.
+	\end{equation}
+
+	Now we do an example on the relativity of simultaneity.
+	\begin{exercise}
+		Consider our setup. Consider two events, A and B, that are simultaneous in $S$. That is, $\Delta t_{AB} \equiv t_{B} - t_{A}=0$. The occur at different position $\Delta x_{AB} \neq 0$. What is $\Delta \bar{t}_{AB}$?
+		
+		\vspace{1\baselineskip}
+		\textbf{Solution.} The Lorentz boost solves it straightforwardly:
+		\begin{equation}
+		  \Delta \bar{t}_{AB} = \gamma \left( \Delta t_{AB} - \frac{V}{c^{2}} \Delta x_{AB}\right) = - \gamma \frac{V}{c^{2}} \Delta x_{AB} \neq 0.
+		\end{equation}
+	\end{exercise}
+
+	\section{Relativistic Dynamics}
+	Definition of the general dot product:
+	\begin{equation}
+	  \mathbf{A} \cdot \mathbf{B} = \frac{1}{4} \left[ (A+B)^{2} - (A-B)^{2} \right].
+	\end{equation}
+
+	The dual vector space $V^{*}$ is the set of all linear maps or functions on the vector...(finish here later)
+
+	\vspace{2\baselineskip}
+	Newtonian laws 1 and 2 holds in Minkowski space. Here, the first law or the law of inertia holds for four-vectors:
+	\begin{equation}
+	  \dv{u^{\mu}}{\tau} = 0.
+	\end{equation}
+
+	The second law is also true: the change in motion is proportional to the motive force impressed and directed along the line in which the force is impressed. But, the third law does NOT hold because the definition of causality is limited to the speed of light / causality.
+
+	
 \end{document}
